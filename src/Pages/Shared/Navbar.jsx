@@ -28,31 +28,44 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/" exact activeClassName="font-bold">
+        <NavLink to="/" exact activeClassName="font-bold" className='font-semibold'>
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/brands" activeClassName="font-bold">
+        <NavLink to="/brands" activeClassName="font-bold" className='font-semibold'>
           Services
         </NavLink>
       </li>
       <li>
-        <NavLink to="/login" activeClassName="font-bold">
+        <NavLink to="/login" activeClassName="font-bold" className='font-semibold'>
           Login
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/addProduct" activeClassName="font-bold">
+      <li className="relative group">
+        <NavLink to="/dashboard" activeClassName="font-bold" className='font-semibold'>
           Dashboard
         </NavLink>
+        <ul className=" bg-slate-300 absolute hidden group-hover:block mt-7 
+        space-y-4 p-4 left-2 menu menu-sm dropdown-content z-[1] shadow rounded-md w-52">
+          <li>
+            <NavLink to="/my-services" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
+          </li>
+          <li>
+            <NavLink to="/add-services" activeClassName="font-bold" className='font-semibold'>Add Services</NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-schedules" activeClassName="font-bold" className='font-semibold'>My Schedules</NavLink>
+          </li>
+        </ul>
       </li>
     </>
   );
+  
   <br />;
  
   return (
-    <div className="navbar bg-base-100 p-5 ">
+    <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -73,15 +86,17 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52" 
           >
             {navLinks}
           </ul>
         </div>
+        <Link to='/'>
         <div className='flex items-center'>
-          <img className='w-[100px]' src={logo} alt="" />
+          <img className='w-[80px]' src={logo} alt="" />
           <a className='font-extrabold text-xl'>TravelTandem</a>
         </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
