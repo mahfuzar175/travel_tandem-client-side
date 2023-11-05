@@ -5,6 +5,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PopularServices from "../components/PopularServices";
+import AllServices from "../components/AllServices";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         {
             path: '/popularServices',
             element: <PopularServices></PopularServices>
+        },
+        {
+          path: '/allServices',
+          element: <AllServices></AllServices>
         },
         {
           path: '/login',
