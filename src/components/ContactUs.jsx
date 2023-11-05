@@ -4,7 +4,7 @@ const ContactUs = () => {
     }
   return (
     <section className="p-6 bg-gray-800 text-white  shadow-2xl">
-	<form  className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow ">
+	<form  className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow">
 		<h2 className="w-full text-3xl font-bold leadi text-center">Contact us</h2>
 		<div>
 			<label className="block mb-1 ml-1">Name</label>
