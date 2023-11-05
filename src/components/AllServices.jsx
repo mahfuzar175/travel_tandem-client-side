@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ServiceCard from "./serviceCard";
+import AllServicesCard from "./AllServicesCard";
 
 const AllServices = () => {
     const [services, setServices] = useState([]);
@@ -16,7 +16,7 @@ const AllServices = () => {
             <h1 className="font-bold text-3xl mb-4">All Services</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {services.map(service => (
-                    <ServiceCard key={service._id} service={service}></ServiceCard>
+                    <AllServicesCard key={service._id} service={service}></AllServicesCard>
                 ))}
             </div>
         </div>

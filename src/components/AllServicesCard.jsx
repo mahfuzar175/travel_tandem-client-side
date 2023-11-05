@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ServiceCard = ({ service }) => {
+const AllServicesCard = ({ service }) => {
   const {
     serviceName,
     serviceDescription,
@@ -8,6 +8,7 @@ const ServiceCard = ({ service }) => {
     serviceProviderName,
     serviceProviderImage,
     servicePrice,
+    serviceArea,
   } = service;
 
   return (
@@ -38,10 +39,15 @@ const ServiceCard = ({ service }) => {
         <div className="flex justify-between items-center">
           <div>
             <h2 className="mb-1 text-xl font-bold text-left">{serviceName}</h2>
-            <p className="text-sm font-normal dark:text-gray-400">{serviceDescription}</p>
+            <p className="text-sm font-normal dark:text-gray-400">
+              {serviceDescription}
+            </p>
+            <p className="font-semibold text-left">Area: {serviceArea}</p>
           </div>
           <div>
-            <button className="p-4 border rounded-lg text-base font-bold text-red-600">Price: ${servicePrice}</button>
+            <button className="p-4 border rounded-lg text-base font-bold text-red-600">
+              Price: ${servicePrice}
+            </button>
           </div>
         </div>
       </div>
@@ -52,4 +58,4 @@ const ServiceCard = ({ service }) => {
   );
 };
 
-export default ServiceCard;
+export default AllServicesCard;
