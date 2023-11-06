@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddService = () => {
   const authContext = useContext(AuthContext);
@@ -10,33 +10,58 @@ const AddService = () => {
     event.preventDefault();
     const form = event.target;
 
-    const photo = form.serviceImage.value;
+    const serviceImage = form.serviceImage.value;
     const serviceName = form.serviceName.value;
     const servicePrice = form.servicePrice.value;
-
-    const name = form.name.value;
-    const email = form.email.value;
-
+    const serviceProviderName = form.serviceProviderName.value;
+    const serviceProviderEmail = form.serviceProviderEmail.value;
     const serviceArea = form.serviceArea.value;
     const serviceDescription = form.serviceDescription.value;
+
+    const serviceProviderImage = user?.providerData[0].photoURL || '';
 
     const newProduct = {
       serviceName,
       serviceDescription,
       serviceArea,
-      name,
-      email,
+    serviceProviderName,
+      serviceProviderEmail,
       servicePrice,
-      photo,
+      serviceImage,
+      serviceProviderImage,
     };
     console.log(newProduct);
 
+    // send data to the server
+    fetch(
+      "http://localhost:5000/services",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+            Swal.fire({
+              title: 'Success!',
+              text: 'Service Added Successfully',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            });
+        }
+        
+      });
   };
 
   return (
     <div className="bg-gray-200 p-20">
       <h2 className="text-3xl font-extrabold text-center mb-4">
-        Add a Product
+        Add a new service
       </h2>
       <form onSubmit={handleAddProduct}>
         <div className="mb-6 gap-4">
@@ -92,7 +117,7 @@ const AddService = () => {
             <label className="input-group">
               <input
                 type="text"
-                name="name"
+                name="serviceProviderName"
                 placeholder="Name"
                 className="input input-bordered w-full"
                 defaultValue={user?.displayName || ""}
@@ -107,7 +132,7 @@ const AddService = () => {
             <label className="input-group">
               <input
                 type="email"
-                name="email"
+                name="serviceProviderEmail"
                 placeholder="Email"
                 className="input input-bordered w-full"
                 defaultValue={user?.email || ""}
@@ -147,7 +172,7 @@ const AddService = () => {
         </div>
         <input
           type="submit"
-          value="Add Product"
+          value="Add Service"
           className="btn btn-block btn-neutral"
         />
       </form>
