@@ -1,7 +1,13 @@
+import { useContext, useState} from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const ServiceDetails = () => {
+
+  const authContext = useContext(AuthContext);
+  const { user } = authContext;
+
   const data = useLoaderData();
   const {
     _id,
@@ -10,9 +16,15 @@ const ServiceDetails = () => {
     serviceImage,
     serviceProviderName,
     serviceProviderImage,
+    serviceProviderEmail,
     servicePrice,
     serviceArea,
   } = data;
+
+  const [serviceTakingDate, setServiceTakingDate] = useState("");
+  const [specialInstruction, setSpecialInstruction] = useState("");
+
+
   return (
     <div className="flex justify-center items-center h-screen p-4 md:mb-12 md:mt-4">
       <Helmet>
@@ -59,7 +71,88 @@ const ServiceDetails = () => {
             </div>
           </div>
         </div>
-        <button className="btn btn-primary w-full">Book Now</button>
+        <div>
+          <button
+            className="btn btn-primary w-full"
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+          >
+            Book Now
+          </button>
+        
+        <dialog id="my_modal_1" className="modal">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg text-center rounded border p-2 mb-4">Booking Service</h3>
+              <div className="mb-4">
+                <label className="block text-sm font-bold text-gray-700">
+                  Service Name
+                </label>
+                <p className="p-1 rounded border">{serviceName}</p>
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-bold text-gray-700">
+                  Service Image
+                </label>
+                <img src={serviceImage} alt="" className=" w-full" />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-bold text-gray-700">
+                  Service Provider Email
+                </label>
+                <p className="border p-1 rounded">{serviceProviderEmail}</p>
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-bold text-gray-700">
+                  User Email
+                </label>
+                <p className="border p-1 rounded">{user.email}</p>
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-bold text-gray-700">
+                  Service Taking Date
+                </label>
+                <input
+                  type="date"
+                  value={serviceTakingDate}
+                  onChange={(e) => setServiceTakingDate(e.target.value)}
+                  className="mt-1 p-2 border rounded w-full"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-bold text-gray-700">
+                  Special Instruction
+                </label>
+                <textarea
+                  value={specialInstruction}
+                  onChange={(e) => setSpecialInstruction(e.target.value)}
+                  className="mt-1 p-2 border rounded w-full"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label className="block p-2 border rounded-lg text-lg font-bold text-red-600">
+                  Price: ${servicePrice}
+                </label>
+              </div>
+              <div className="modal-action flex justify-center items-center">
+                <button
+                  onClick={() => {
+                    handlePurchase();
+                    document.getElementById("my_modal_1").close();
+                  }}
+                  className="btn btn-primary"
+                >
+                  Purchase this Service
+                </button>
+                <button
+                  onClick={() => document.getElementById("my_modal_1").close()}
+                  className="btn btn-secondary"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </dialog>
+        </div>
       </div>
     </div>
   );

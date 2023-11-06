@@ -19,13 +19,13 @@ const AddService = () => {
     const serviceArea = form.serviceArea.value;
     const serviceDescription = form.serviceDescription.value;
 
-    const serviceProviderImage = user?.providerData[0].photoURL || '';
+    const serviceProviderImage = user?.providerData[0].photoURL || "";
 
     const newProduct = {
       serviceName,
       serviceDescription,
       serviceArea,
-    serviceProviderName,
+      serviceProviderName,
       serviceProviderEmail,
       servicePrice,
       serviceImage,
@@ -34,36 +34,32 @@ const AddService = () => {
     console.log(newProduct);
 
     // send data to the server
-    fetch(
-      "http://localhost:5000/services",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      }
-    )
+    fetch("http://localhost:5000/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-            Swal.fire({
-              title: 'Success!',
-              text: 'Service Added Successfully',
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            });
+          Swal.fire({
+            title: "Success!",
+            text: "Service Added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
         }
-        
       });
   };
 
   return (
     <div className="bg-gray-200 p-20">
-        <Helmet>
-                <title>Travel Tandem | Add Service</title>
-            </Helmet>
+      <Helmet>
+        <title>Travel Tandem | Add Service</title>
+      </Helmet>
       <h2 className="text-3xl font-extrabold text-center mb-4">
         Add a new service
       </h2>
