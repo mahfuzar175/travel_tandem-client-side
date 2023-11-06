@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
 
 const AllServicesCard = ({ service }) => {
-  const {
-    serviceName,
-    serviceDescription,
-    serviceImage,
-    serviceProviderName,
-    serviceProviderImage,
-    servicePrice,
-    serviceArea,
-  } = service;
+  const {_id, serviceName, serviceDescription, serviceImage, serviceProviderName, serviceProviderImage, servicePrice,serviceArea} = service;
 
   return (
-    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
       <div className="flex space-x-4">
         <img
           alt=""
@@ -51,7 +43,7 @@ const AllServicesCard = ({ service }) => {
           </div>
         </div>
       </div>
-      <Link to="/serviceDetails">
+      <Link to={`/serviceDetails/${_id}`}>
         <button className="btn btn-primary w-full">View Details</button>
       </Link>
     </div>

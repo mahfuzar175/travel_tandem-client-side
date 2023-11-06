@@ -1,18 +1,17 @@
-
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import userDefaultPic from '../../assets/user.png'
-import logo from '../../assets/logo.jpg'
-import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import userDefaultPic from '../../assets/user.png';
+import logo from '../../assets/logo.jpg';
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
   const [loggingOut, setLoggingOut] = useState(false);
   const userName = user ? user.displayName : "";
   const userProfilePic = user ? user.photoURL : userDefaultPic;
 
   const handleSignOut = () => {
+    setLoggingOut(true);
     logOut()
       .then(() => {
         console.log("User signed out successfully");
@@ -33,34 +32,39 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/brands" activeClassName="font-bold" className='font-semibold'>
+        <NavLink to="/allServices" activeClassName="font-bold" className='font-semibold'>
           Services
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/login" activeClassName="font-bold" className='font-semibold'>
-          Login
-        </NavLink>
-      </li>
-      <li className="relative group">
-        <NavLink to="/dashboard" activeClassName="font-bold" className='font-semibold'>
-          Dashboard
-        </NavLink>
-        <ul className=" bg-slate-300 absolute hidden group-hover:block mt-7 
-        space-y-4 p-4 left-2 menu menu-sm dropdown-content z-[1] shadow rounded-md w-52">
-          <li>
-            <NavLink to="/my-services" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
-          </li>
-          <li>
-            <NavLink to="/add-services" activeClassName="font-bold" className='font-semibold'>Add Services</NavLink>
-          </li>
-          <li>
-            <NavLink to="/my-schedules" activeClassName="font-bold" className='font-semibold'>My Schedules</NavLink>
-          </li>
-        </ul>
-      </li>
+      {user && (
+        <li className="relative group">
+          <Link className='font-semibold'>
+            Dashboard
+          </Link>
+          <ul className=" bg-slate-300 absolute hidden group-hover:block mt-7 space-y-4 p-4 left-2 menu menu-sm dropdown-content z-[1] shadow rounded-md w-52">
+            <li>
+              <NavLink to="/my-services" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
+            </li>
+            <li>
+              <NavLink to="/add-services" activeClassName="font-bold" className='font-semibold'>Add Services</NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-schedules" activeClassName="font-bold" className='font-semibold'>My Schedules</NavLink>
+            </li>
+          </ul>
+        </li>
+      )}
+      {!user && (
+        <li>
+          <NavLink to="/login" activeClassName="font-bold" className='font-semibold' disabled={loggingOut}>
+            Login
+          </NavLink>
+        </li>
+      )}
     </>
   );
+
+
   
   <br />;
  
