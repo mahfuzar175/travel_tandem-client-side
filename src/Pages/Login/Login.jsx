@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -56,6 +57,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Travel Tandem | Login</title>
+      </Helmet>
       <ToastContainer />
       <div className="mb-8 p-4">
         <h1 className="text-5xl font-bold text-center">Please Login!</h1>

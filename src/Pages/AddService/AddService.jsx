@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const authContext = useContext(AuthContext);
@@ -60,6 +61,9 @@ const AddService = () => {
 
   return (
     <div className="bg-gray-200 p-20">
+        <Helmet>
+                <title>Travel Tandem | Add Service</title>
+            </Helmet>
       <h2 className="text-3xl font-extrabold text-center mb-4">
         Add a new service
       </h2>

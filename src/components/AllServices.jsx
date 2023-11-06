@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AllServicesCard from "./AllServicesCard";
+import { Helmet } from "react-helmet-async";
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
@@ -24,7 +25,10 @@ const AllServices = () => {
 
   return (
     <div className="flex flex-col items-center pt-4 bg-gray-50">
-        <h1 className="font-bold text-3xl mb-2">All Services</h1>
+      <Helmet>
+        <title>Travel Tandem | Services</title>
+      </Helmet>
+      <h1 className="font-bold text-3xl mb-2">All Services</h1>
       <div className="mt-8 mb-8 flex">
         <input
           type="text"

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 
 const ServiceDetails = () => {
@@ -14,6 +15,9 @@ const ServiceDetails = () => {
   } = data;
   return (
     <div className="flex justify-center items-center h-screen p-4 md:mb-12 md:mt-4">
+      <Helmet>
+        <title>Travel Tandem | Details</title>
+      </Helmet>
       <div className="flex flex-col p-6 w-[600px] md:w-[1000px] space-y-6 overflow-hidden rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
         <div className="flex space-x-4">
           <img
@@ -55,7 +59,7 @@ const ServiceDetails = () => {
             </div>
           </div>
         </div>
-          <button className="btn btn-primary w-full">Book Now</button>
+        <button className="btn btn-primary w-full">Book Now</button>
       </div>
     </div>
   );

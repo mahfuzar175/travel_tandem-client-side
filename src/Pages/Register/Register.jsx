@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
@@ -60,6 +61,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Travel Tandem | Register</title>
+      </Helmet>
       <ToastContainer />
       <div className="mb-8 p-2">
         <h1 className="text-5xl font-bold text-center">Register now!</h1>
