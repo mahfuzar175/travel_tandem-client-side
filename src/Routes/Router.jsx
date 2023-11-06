@@ -8,6 +8,9 @@ import PopularServices from "../components/PopularServices";
 import AllServices from "../components/AllServices";
 import ServiceDetails from "../components/ServiceDetails";
 import AddService from "../Pages/AddService/AddService";
+import MySchedules from "../Pages/My Schedules/MySchedules";
+import MyServices from "../Pages/My Services/MyServices";
+import PrivateRoute from "./Private Route/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -28,12 +31,24 @@ const router = createBrowserRouter([
           element: <AllServices></AllServices>
         },
         {
+          path: '/serviceDetails',
+          element: <ServiceDetails></ServiceDetails>
+        },
+        {
+          path: 'myServices',
+          element: <PrivateRoute><MyServices></MyServices></PrivateRoute>
+        },
+        {
           path: '/addService',
-          element: <AddService></AddService>
+          element: <PrivateRoute><AddService></AddService></PrivateRoute>
+        },
+        {
+          path: '/mySchedules',
+          element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>
         },
         {
           path: '/serviceDetails/:id',
-          element: <ServiceDetails></ServiceDetails>,
+          element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         },
         {

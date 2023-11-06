@@ -43,13 +43,13 @@ const Navbar = () => {
           </Link>
           <ul className=" bg-slate-300 absolute hidden group-hover:block mt-7 space-y-4 p-4 left-2 menu menu-sm dropdown-content z-[1] shadow rounded-md w-52">
             <li>
-              <NavLink to="/my-services" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
+              <NavLink to="/myServices" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
             </li>
             <li>
               <NavLink to="/addService" activeClassName="font-bold" className='font-semibold'>Add Service</NavLink>
             </li>
             <li>
-              <NavLink to="/my-schedules" activeClassName="font-bold" className='font-semibold'>My Schedules</NavLink>
+              <NavLink to="/mySchedules" activeClassName="font-bold" className='font-semibold'>My Schedules</NavLink>
             </li>
           </ul>
         </li>
