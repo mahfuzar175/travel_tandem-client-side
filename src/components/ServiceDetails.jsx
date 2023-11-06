@@ -26,7 +26,7 @@ const ServiceDetails = () => {
 
 
   return (
-    <div className="flex justify-center items-center h-screen p-4 md:mb-12 md:mt-4">
+    <div className="flex justify-center items-center h-screen p-4 md:mb-12 md:mt-8">
       <Helmet>
         <title>Travel Tandem | Details</title>
       </Helmet>
@@ -81,7 +81,7 @@ const ServiceDetails = () => {
         
         <dialog id="my_modal_1" className="modal">
             <div className="modal-box">
-              <h3 className="font-bold text-lg text-center rounded border p-2 mb-4">Booking Service</h3>
+              <h3 className="font-bold text-2xl bg-green-500 text-center rounded-md border p-2 mb-4">Booking Service</h3>
               <div className="mb-4">
                 <label className="block text-sm font-bold text-gray-700">
                   Service Name
