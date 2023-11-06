@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import PopularServices from "../components/PopularServices";
 import AllServices from "../components/AllServices";
 import ServiceDetails from "../components/ServiceDetails";
+import AddService from "../Pages/AddService/AddService";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         {
           path: '/allServices',
           element: <AllServices></AllServices>
+        },
+        {
+          path: '/addService',
+          element: <AddService></AddService>
         },
         {
           path: '/serviceDetails/:id',

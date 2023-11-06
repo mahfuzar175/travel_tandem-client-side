@@ -46,7 +46,7 @@ const Navbar = () => {
               <NavLink to="/my-services" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
             </li>
             <li>
-              <NavLink to="/add-services" activeClassName="font-bold" className='font-semibold'>Add Services</NavLink>
+              <NavLink to="/addService" activeClassName="font-bold" className='font-semibold'>Add Service</NavLink>
             </li>
             <li>
               <NavLink to="/my-schedules" activeClassName="font-bold" className='font-semibold'>My Schedules</NavLink>
