@@ -11,6 +11,7 @@ import AddService from "../Pages/AddService/AddService";
 import MySchedules from "../Pages/My Schedules/MySchedules";
 import MyServices from "../Pages/My Services/MyServices";
 import PrivateRoute from "./Private Route/PrivateRoute";
+import UpdateService from "../components/UpdateService";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
           path: 'myServices',
           element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
           loader: () => fetch('http://localhost:5000/services')
+        },
+        {
+          path: '/updateService/:id',
+          element: <UpdateService></UpdateService>,
+          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+
         },
         {
           path: '/addService',

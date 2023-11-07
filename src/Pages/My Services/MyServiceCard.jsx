@@ -1,4 +1,5 @@
 import { data } from "autoprefixer";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyServiceCard = ({ service, services, setServices }) => {
@@ -80,8 +81,8 @@ const MyServiceCard = ({ service, services, setServices }) => {
         </div>
       </div>
         <div className="flex justify-center gap-4">
-        <button className="btn bg-green-600 hover:bg-green-700 w-1/2 text-white">Update</button>
-        <button onClick={() => handleDelete(_id)} className="btn bg-red-600 hover:bg-red-700 w-1/2 text-white">Delete</button>
+        <Link to={`/updateService/${_id}`}><button className="btn bg-green-600 hover:bg-green-700 text-white">Update</button></Link>
+        <button onClick={() => handleDelete(_id)} className="btn bg-red-600 hover:bg-red-700 text-white">Delete</button>
         </div>
     </div>
     );
