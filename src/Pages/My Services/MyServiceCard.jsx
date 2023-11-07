@@ -1,7 +1,43 @@
-import { Link } from "react-router-dom";
+import { data } from "autoprefixer";
+import Swal from "sweetalert2";
 
-const MyServiceCard = ({ service }) => {
+const MyServiceCard = ({ service, services, setServices }) => {
     const {_id, serviceName, serviceDescription, serviceImage, serviceProviderName, serviceProviderImage, servicePrice,serviceArea} = service;
+
+    const handleDelete = _id =>{
+      console.log(_id);
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:5000/services/${_id}`, {
+            method: 'DELETE'
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if(data.deletedCount > 0){
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your service has been deleted.",
+                icon: "success"
+              });
+              const remaining = services.filter(serv => serv._id !== _id);
+              setServices(remaining);
+            }
+          })
+
+        }
+      });
+    }
+
+
 
     return (
         <div className="flex flex-col mt-4 max-w-lg p-6 space-y-6 overflow-hidden rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
@@ -45,7 +81,7 @@ const MyServiceCard = ({ service }) => {
       </div>
         <div className="flex justify-center gap-4">
         <button className="btn bg-green-600 hover:bg-green-700 w-1/2 text-white">Update</button>
-        <button className="btn bg-red-600 hover:bg-red-700 w-1/2 text-white">Delete</button>
+        <button onClick={() => handleDelete(_id)} className="btn bg-red-600 hover:bg-red-700 w-1/2 text-white">Delete</button>
         </div>
     </div>
     );

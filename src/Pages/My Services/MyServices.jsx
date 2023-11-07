@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import MyServiceCard from "./MyServiceCard";
+import { useLoaderData } from "react-router-dom";
 
 const MyServices = () => {
 
-  const [services, setServices] = useState([]);
+  const loadedservices = useLoaderData();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/services")
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data);
-      });
-  }, []);
+  const [services, setServices] = useState(loadedservices)
 
 
   return (
@@ -23,7 +18,11 @@ const MyServices = () => {
       <div className="text-center mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {
-            services.map(service => <MyServiceCard  key={service._id} service={service}></MyServiceCard>)
+            services.map(service => <MyServiceCard  key={service._id} 
+              service={service}
+              services={services}
+              setServices={setServices}
+              ></MyServiceCard>)
           } 
         </div>
       </div>
