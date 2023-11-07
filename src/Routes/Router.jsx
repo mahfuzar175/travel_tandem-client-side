@@ -8,10 +8,12 @@ import PopularServices from "../components/PopularServices";
 import AllServices from "../components/AllServices";
 import ServiceDetails from "../components/ServiceDetails";
 import AddService from "../Pages/AddService/AddService";
-import MySchedules from "../Pages/My Schedules/MySchedules";
 import MyServices from "../Pages/My Services/MyServices";
 import PrivateRoute from "./Private Route/PrivateRoute";
 import UpdateService from "../components/UpdateService";
+import MySchedules from "../Pages/My Schedules/MySchedules";
+import MyBookings from "../Pages/My Schedules/My Bookings/MyBookings";
+import MyPendingWorks from "../Pages/My Schedules/My Pending works/MyPendingWorks";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/serviceDetails',
-          element: <ServiceDetails></ServiceDetails>
+          element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
         },
         {
           path: 'myServices',
@@ -42,7 +44,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/updateService/:id',
-          element: <UpdateService></UpdateService>,
+          element: <PrivateRoute><UpdateService></UpdateService></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
 
         },
@@ -52,7 +54,17 @@ const router = createBrowserRouter([
         },
         {
           path: '/mySchedules',
-          element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>
+          element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>,
+          loader: () => fetch('http://localhost:5000/booking')
+        },
+        {
+          path:'/myBookings',
+          element: <PrivateRoute><MyBookings></MyBookings></PrivateRoute>,
+          loader: () => fetch('http://localhost:5000/booking')
+        },
+        {
+          path: '/myPendingWorks',
+          element: <PrivateRoute><MyPendingWorks></MyPendingWorks></PrivateRoute>
         },
         {
           path: '/serviceDetails/:id',

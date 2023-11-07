@@ -2,6 +2,7 @@ import { useContext, useState} from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
 
@@ -20,6 +21,40 @@ const ServiceDetails = () => {
     servicePrice,
     serviceArea,
   } = data;
+  
+
+  const addToCartItems = {
+    serviceName,
+    serviceImage,
+    serviceProviderName,
+    serviceProviderEmail,
+    servicePrice,
+    
+  };
+
+    const handlePurchase = () =>{
+
+      
+      fetch('http://localhost:5000/booking', {
+        method: 'POST',
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(addToCartItems) 
+      })
+      .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.insertedId){
+        Swal.fire({
+          title: 'Success!',
+          text: 'Successfully Purchase',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+      }
+    })
+    }
 
   const [serviceTakingDate, setServiceTakingDate] = useState("");
   const [specialInstruction, setSpecialInstruction] = useState("");
@@ -87,6 +122,7 @@ const ServiceDetails = () => {
                   Service Name
                 </label>
                 <p className="p-1 rounded border">{serviceName}</p>
+                
               </div>
               <div className="mb-4">
                 <label className="block text-sm font-bold text-gray-700">

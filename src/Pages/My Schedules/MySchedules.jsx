@@ -1,17 +1,18 @@
-import { Helmet } from "react-helmet-async";
-import MyBookings from "../../components/MyBookings";
-import MyPendingWorks from "../../components/MyPendingWorks";
+import React from 'react';
+import MyBookings from './My Bookings/MyBookings';
+import MyPendingWorks from './My Pending works/MyPendingWorks';
+import { useLoaderData } from 'react-router-dom';
 
 const MySchedules = () => {
-  return (
-    <div>
-      <Helmet>
-        <title>Travel Tandem | My Schedules</title>
-      </Helmet>
-      <MyBookings></MyBookings>
-      <MyPendingWorks></MyPendingWorks>
-    </div>
-  );
+    
+
+    return (
+        <div>
+
+            <MyBookings></MyBookings>
+            <MyPendingWorks></MyPendingWorks>
+        </div>
+    );
 };
 
 export default MySchedules;

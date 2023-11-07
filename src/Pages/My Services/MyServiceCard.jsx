@@ -36,7 +36,11 @@ const MyServiceCard = ({ service, services, setServices }) => {
 
         }
       });
+
+      
     }
+
+
 
 
 
