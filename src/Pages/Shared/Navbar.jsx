@@ -41,7 +41,7 @@ const Navbar = () => {
           <Link className='font-semibold'>
             Dashboard
           </Link>
-          <ul className=" bg-slate-300 absolute hidden group-hover:block mt-7 space-y-4 p-4 left-2 menu menu-sm dropdown-content z-[1] shadow rounded-md w-52">
+          <ul className=" bg-slate-300 absolute hidden group-hover:block mt-7 space-y-4 p-4 left-2 menu menu-sm dropdown-content z-[1] shadow rounded-md w-36">
             <li>
               <NavLink to="/myServices" activeClassName="font-bold" className='font-semibold'>My Services</NavLink>
             </li>
@@ -98,7 +98,7 @@ const Navbar = () => {
         <Link to='/'>
         <div className='flex items-center'>
           <img className='w-[80px]' src={logo} alt="" />
-          <a className='font-extrabold text-xl'>TravelTandem</a>
+          <a className='font-extrabold text-xl'><span className='text-sky-700'>Travel</span><span className='text-orange-600'>Tandem</span></a>
         </div>
         </Link>
       </div>

@@ -54,7 +54,7 @@ const MyBookingDetails = ({booking, bookings, setBookings}) => {
           <p className="font-semibold text-gray-400">{serviceProviderEmail}</p>
           <p className="font-bold text-lg text-red-600">Price: $ {servicePrice}</p>
           <div className="card-actions justify-end">
-            <button onClick={() => handleBookingDelete(_id)} className="btn text-white bg-slate-900 hover:bg-red-600">Delete</button>
+            <button onClick={() => handleBookingDelete(_id)} className="btn bg-red-600 hover:bg-red-700 text-white">Delete</button>
           </div>
         </div>
       </div>

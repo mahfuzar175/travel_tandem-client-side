@@ -13,7 +13,7 @@ const Footer = () => {
               <img src={logo} alt="" />
             </div>
             <span className="self-center text-2xl font-semibold">
-            TravelTandem
+            <span className='text-sky-700'>Travel</span><span className='text-orange-600'>Tandem</span>
             </span>
           </a>
         </div>

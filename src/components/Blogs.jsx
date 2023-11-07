@@ -4,7 +4,7 @@ const Blogs = () => {
     <section className="py-6 sm:py-12 dark:bg-gray-800 dark:text-gray-100">
       <div className="container p-6 mx-auto space-y-8">
         <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-bold">Travel and Tour Blogs</h2>
+          <h2 className="text-4xl font-extrabold">Travel and Tour <span className="text-pink-500">Blogs</span></h2>
           <p className="font-serif text-sm dark:text-gray-400">
             Explore exciting travel destinations and tour experiences with our blog posts.
           </p>

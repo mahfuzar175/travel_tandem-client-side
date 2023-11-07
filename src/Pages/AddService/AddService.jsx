@@ -60,8 +60,8 @@ const AddService = () => {
       <Helmet>
         <title>Travel Tandem | Add Service</title>
       </Helmet>
-      <h2 className="text-3xl font-extrabold text-center mb-4">
-        Add a new service
+      <h2 className="text-4xl font-extrabold text-center mb-4">
+        ADD NEW <span className="text-pink-500">SERVICE</span>
       </h2>
       <form onSubmit={handleAddService}>
         <div className="mb-6 gap-4">

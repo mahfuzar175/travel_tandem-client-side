@@ -28,7 +28,7 @@ const AllServices = () => {
       <Helmet>
         <title>Travel Tandem | Services</title>
       </Helmet>
-      <h1 className="font-bold text-3xl mb-2">All Services</h1>
+      <h1 className="font-extrabold text-4xl mb-2">All <span className="text-pink-500">Services</span></h1>
       <div className="mt-8 mb-8 flex">
         <input
           type="text"
