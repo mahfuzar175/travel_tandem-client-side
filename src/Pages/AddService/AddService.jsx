@@ -34,7 +34,7 @@ const AddService = () => {
     console.log(newService);
 
     // send data to the server
-    fetch("http://localhost:5000/services", {
+    fetch("https://b8a11-server-side-mahfuzar175.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",

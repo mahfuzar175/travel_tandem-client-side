@@ -35,7 +35,7 @@ const ServiceDetails = () => {
     const handlePurchase = () =>{
 
       
-      fetch('http://localhost:5000/booking', {
+      fetch('https://b8a11-server-side-mahfuzar175.vercel.app/booking', {
         method: 'POST',
         headers: {
           'content-type' : 'application/json'

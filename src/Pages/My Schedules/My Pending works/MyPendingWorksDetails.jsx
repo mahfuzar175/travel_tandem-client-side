@@ -25,7 +25,7 @@ const MyPendingWorksDetails = ({ booking, bookings, setBookings }) => {
   const updateServiceStatus = (status) => {
     const updatedBooking = { ...booking, serviceStatus: status };
 
-    // fetch(`http://localhost:5000/update-status/${_id}`, {
+    // fetch(`https://b8a11-server-side-mahfuzar175.vercel.app/update-status/${_id}`, {
     //   method: "PUT",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const MyPendingWorksDetails = ({ booking, bookings, setBookings }) => {
   };
 
   const handlePending = () => {
-    fetch("http://localhost:5000/pending", {
+    fetch("https://b8a11-server-side-mahfuzar175.vercel.app/pending", {
       method: "POST",
       headers: {
         "content-type": "application/json",

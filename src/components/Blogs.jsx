@@ -1,3 +1,4 @@
+import Marquee from "react-fast-marquee";
 
 const Blogs = () => {
   return (
@@ -5,8 +6,10 @@ const Blogs = () => {
       <div className="container p-6 mx-auto space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="text-4xl font-extrabold">Travel and Tour <span className="text-pink-500">Blogs</span></h2>
-          <p className="font-serif text-sm dark:text-gray-400">
+          <p className="font-serif text-base dark:text-gray-400">
+            <Marquee pauseOnHover={true} speed={100}>
             Explore exciting travel destinations and tour experiences with our blog posts.
+            </Marquee>
           </p>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">

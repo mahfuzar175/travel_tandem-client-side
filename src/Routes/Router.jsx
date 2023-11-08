@@ -40,12 +40,12 @@ const router = createBrowserRouter([
         {
           path: 'myServices',
           element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/services')
+          loader: () => fetch('https://b8a11-server-side-mahfuzar175.vercel.app/services')
         },
         {
           path: '/updateService/:id',
           element: <PrivateRoute><UpdateService></UpdateService></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+          loader: ({params}) => fetch(`https://b8a11-server-side-mahfuzar175.vercel.app/services/${params.id}`)
 
         },
         {
@@ -55,12 +55,12 @@ const router = createBrowserRouter([
         {
           path: '/mySchedules',
           element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/booking')
+          loader: () => fetch('https://b8a11-server-side-mahfuzar175.vercel.app/booking')
         },
         {
           path:'/myBookings',
           element: <PrivateRoute><MyBookings></MyBookings></PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/booking')
+          loader: () => fetch('https://b8a11-server-side-mahfuzar175.vercel.app/booking')
         },
         {
           path: '/myPendingWorks',
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         {
           path: '/serviceDetails/:id',
           element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+          loader: ({params}) => fetch(`https://b8a11-server-side-mahfuzar175.vercel.app/services/${params.id}`)
         },
         {
           path: '/login',

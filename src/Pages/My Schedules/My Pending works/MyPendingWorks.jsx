@@ -13,7 +13,7 @@ const MyPendingWorks = () => {
       </h2>
       {bookings.length === 0 ? (
         <p className="text-center font-semibold p-4 border rounded-md text-gray-400">
-          No bookings available at the moment!!!
+          No data available at the moment!!!
         </p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
