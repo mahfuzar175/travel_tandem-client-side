@@ -34,7 +34,7 @@ const UpdateService = () => {
 
     console.log(updatedService);
 
-    fetch(`b8a11-server-side-mahfuzar175.vercel.app/services/${_id}`, {
+    fetch(`https://b8a11-server-side-mahfuzar175.vercel.app/services/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
