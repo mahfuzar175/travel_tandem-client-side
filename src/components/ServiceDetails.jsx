@@ -34,7 +34,6 @@ const ServiceDetails = () => {
 
     const handlePurchase = () =>{
 
-      
       fetch('https://b8a11-server-side-mahfuzar175.vercel.app/booking', {
         method: 'POST',
         headers: {
@@ -59,13 +58,12 @@ const ServiceDetails = () => {
   const [serviceTakingDate, setServiceTakingDate] = useState("");
   const [specialInstruction, setSpecialInstruction] = useState("");
 
-
   return (
-    <div className="flex justify-center items-center h-screen p-4 md:mb-12 md:mt-8">
+    <div className="flex justify-center items-center p-4 md:mb-12 md:mt-8">
       <Helmet>
         <title>Travel Tandem | Details</title>
       </Helmet>
-      <div className="flex flex-col p-6 w-[600px] md:w-[1000px] space-y-6 overflow-hidden rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+      <div className="flex flex-col p-6 space-y-6 overflow-hidden rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
         <div className="flex space-x-4">
           <img
             alt=""

@@ -6,7 +6,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-import axios from "axios";
+
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -30,13 +30,13 @@ const Login = () => {
         });
 
         // get acces token
-        axios.post('https://b8a11-server-side-mahfuzar175.vercel.app/jwt', user, {withCredentials: true})
-        .then(res => {
-          console.log(res.data);
-          if(res.data.success){
-            navigate(location?.state ? location.state : "/");
-          }
-        })
+        // axios.post('https://b8a11-server-side-mahfuzar175.vercel.app/jwt', user, {withCredentials: true})
+        // .then(res => {
+        //   console.log(res.data);
+        //   if(res.data.success){
+        //     navigate(location?.state ? location.state : "/");
+        //   }
+        // })
       })
       .catch((error) => {
         const errorCode = error.code;
